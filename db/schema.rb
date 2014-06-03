@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140603155525) do
     t.datetime "updated_at"
   end
 
-  create_table "companies_users", force: true do |t|
+  create_table "company_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "company_id"
     t.text     "notes"
