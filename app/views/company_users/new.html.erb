@@ -1,0 +1,19 @@
+<h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
+<%= @all_companies.each do |comp| %>
+  <p id="<%=comp.id%>"><%= link_to comp.name, new_company_user_path %></p> <!-- ajax call to fill out form -->
+
+<% end %>
+
+<%= form_for :company_user do |f| %>
+  <%= f.text_area :notes, placeholder: "Notes" %>
+  <%= f.text_field :advocate_name, placeholder: "Advocate Name" %>
+  <%= f.text_field :advocate_email, placeholder: "Advocate Email" %>
+  <%= f.text_field :advocate_twitter, placeholder: "Advocate Twitter" %>
+  <%= f.datetime_field :last_reached_out, placeholder: "Last reached out" %>
+  <%= f.datetime_field :last_follow_up, placeholder: "Last follow up" %>
+  <%= f.text_area :next_step, placeholder: "Next Step" %>
+  <%= f.text_area :next_step, placeholder: "Interview Notes" %>
+
+
+  <%= f.submit value: "Add this job!"%>
+<% end %>

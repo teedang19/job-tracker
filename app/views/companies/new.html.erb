@@ -1,0 +1,24 @@
+<h4>add a company</h4>
+<%= form_for @company do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  
+  <%= f.label :website %>
+  <%= f.text_field :website %>
+  
+  <%= f.label :hiring %>
+  <%= select_tag(:hiring, options_for_select([["Yes", 1], ["No", 2]])) %>
+
+  <%= f.label :cto_name %>
+  <%= f.text_field :cto_name %>
+  <%= f.label :cto_email %>
+  <%= f.text_field :cto_email %>
+  <%= f.label :cto_twitter %>
+  <%= f.text_field :cto_twitter %>
+  <%= f.label :cto_blog_url %>
+  <%= f.text_field :cto_blog_url %>
+  <%= f.submit %>
+<% end %>
