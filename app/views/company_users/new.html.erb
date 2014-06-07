@@ -1,18 +1,37 @@
 <h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
 <%= @all_companies.each do |comp| %>
-  <p id="<%=comp.id%>"><%= link_to comp.name, new_company_user_path %></p> <!-- ajax call to fill out form -->
+  <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p> <!-- ajax call to fill out form -->
 
 <% end %>
 
-<%= form_for :company_user do |f| %>
-  <%= f.text_area :notes, placeholder: "Notes" %>
-  <%= f.text_field :advocate_name, placeholder: "Advocate Name" %>
-  <%= f.text_field :advocate_email, placeholder: "Advocate Email" %>
-  <%= f.text_field :advocate_twitter, placeholder: "Advocate Twitter" %>
-  <%= f.datetime_field :last_reached_out, placeholder: "Last reached out" %>
-  <%= f.datetime_field :last_follow_up, placeholder: "Last follow up" %>
-  <%= f.text_area :next_step, placeholder: "Next Step" %>
-  <%= f.text_area :next_step, placeholder: "Interview Notes" %>
+<p id="insert_comp_name"></p>
+<%= form_for @company_user do |f| %>
+
+  <%= hidden_field_tag :company_id %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.label :advocate_name %>
+  <%= f.text_field :advocate_name %>
+
+  <%= f.label :advocate_email %>
+  <%= f.text_field :advocate_email %>
+
+  <%= f.label :advocate_twitter %>
+  <%= f.text_field :advocate_twitter %>
+
+  <%= f.label :last_reached_out %>
+  <%= f.datetime_field :last_reached_out%>
+
+  <%= f.label :last_follow_up %>
+  <%= f.datetime_field :last_follow_up %>
+
+  <%= f.label :next_step %>
+  <%= f.text_area :next_step %>
+
+  <%= f.label :interview_notes %>
+  <%= f.text_area :interview_notes %>
 
 
   <%= f.submit value: "Add this job!"%>
