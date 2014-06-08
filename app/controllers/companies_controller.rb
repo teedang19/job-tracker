@@ -7,13 +7,15 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.save
       redirect_to @company # this will probably only be in the context of creating a new company_user, so we'll need to redirect elsewhere
-    else # don't have any validations right now ..
+    else
+      flash[:errors] = []
+      @company.errors.full_messages.each {|msg| flash[:errors] << msg}
       render :new
     end
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:id]) 
   end
 
   private

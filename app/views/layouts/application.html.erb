@@ -10,5 +10,9 @@
 
 <%= yield %>
 
+<% if current_user %>
+  <%= link_to "Homepage", user_path(@user) %>
+  <%= link_to "Logout", session_path, method: :delete %>
+<% end %>
 </body>
 </html>

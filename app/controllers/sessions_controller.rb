@@ -1,13 +1,12 @@
 class SessionsController < ApplicationController
   
   def create
-    @user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
+    @user = User.find_by_username(params[:session][:username]).try(:authenticate, params[:session][:password])
     if @user
       session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:errors] = ["Incorrect username and password combination."]
-
       redirect_to root_url
     end
   end

@@ -1,10 +1,7 @@
 <h1>welcome to your jobTracker</h1>
 <h4>where you'll track all your (potential) jobs.</h4>
 
-<% if current_user %>
-  <%= link_to "Homepage", user_path(@user) %>
-<% else %>
-  
+<% unless current_user %>
   <%= render partial: "sessions/login" %>
 
   <% if flash[:errors] %>
@@ -12,5 +9,6 @@
       <p><%= err %></p>
     <% end %>
   <% end %>
+
   <%= render partial: "form" %>
 <% end %>
