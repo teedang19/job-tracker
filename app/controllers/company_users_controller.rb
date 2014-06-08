@@ -8,6 +8,7 @@ class CompanyUsersController < ApplicationController
     @user = User.find(session[:user_id])
     @company_user = CompanyUser.new(company_user_params)
     @company_user.company_id = params[:company_id]
+    @company_user.offer = params[:offer]
     @company_user.user = @user
 
     if @company_user.save

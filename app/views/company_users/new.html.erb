@@ -33,7 +33,7 @@
   <%= f.text_area :interview_notes %><br>
 
   <%= f.label :offer %>
-  <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 2]])) %><br>
+  <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 0]])) %><br>
 
   <%= f.submit value: "Add this job!" %>
 <% end %>
