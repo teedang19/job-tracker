@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to @company # this will probably only be in the context of creating a new company_user, so we'll need to redirect elsewhere
+      redirect_to new_company_user_path
     else
       flash[:errors] = []
       @company.errors.full_messages.each {|msg| flash[:errors] << msg}
