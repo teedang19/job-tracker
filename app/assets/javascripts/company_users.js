@@ -5,7 +5,6 @@
 $(function() {
   $('.company').on('click', function(event) {
     event.preventDefault();
-    console.log($(this).html());
     $('#company_id').val(this.id);
     $('#insert_comp_name').text($(this).html());
   });

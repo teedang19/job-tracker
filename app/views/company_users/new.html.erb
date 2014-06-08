@@ -1,7 +1,6 @@
 <h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
-<%= @all_companies.each do |comp| %>
-  <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p> <!-- ajax call to fill out form -->
-
+<% @all_companies.each do |comp| %>
+  <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p>
 <% end %>
 
 <p id="insert_comp_name"></p>
