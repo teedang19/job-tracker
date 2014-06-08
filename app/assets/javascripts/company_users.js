@@ -3,9 +3,11 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(function() {
+
   $('.company').on('click', function(event) {
     event.preventDefault();
     $('#company_id').val(this.id);
     $('#insert_comp_name').text($(this).html());
   });
+  
 });

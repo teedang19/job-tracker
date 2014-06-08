@@ -21,7 +21,7 @@
   <%= f.text_field :advocate_twitter %>
 
   <%= f.label :last_reached_out %>
-  <%= f.datetime_field :last_reached_out%>
+  <%= f.datetime_field :last_reached_out %>
 
   <%= f.label :last_follow_up %>
   <%= f.datetime_field :last_follow_up %>
@@ -32,6 +32,8 @@
   <%= f.label :interview_notes %>
   <%= f.text_area :interview_notes %>
 
+  <%= f.label :offer %>
+  <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 2]])) %>
 
   <%= f.submit value: "Add this job!"%>
 <% end %>
