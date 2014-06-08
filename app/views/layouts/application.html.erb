@@ -12,7 +12,7 @@
 
 <% if current_user %>
   <%= link_to "Homepage", user_path(@user) %>
-  <%= link_to "Logout", session_path, method: :delete %>
+  <%= link_to "Logout", session_path(@user), method: :delete %>
 <% end %>
 </body>
 </html>

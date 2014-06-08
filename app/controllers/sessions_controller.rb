@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  
+
+  skip_before_filter :require_login, only: [:index, :create]
+
   def create
     @user = User.find_by_username(params[:session][:username]).try(:authenticate, params[:session][:password])
     if @user
