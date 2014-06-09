@@ -1,8 +1,8 @@
 <h4><%= @company.name %></h4>
-<p><%= @company.address %></p>
-<p><%= @company.website %></p>
-<p><%= @company.hiring %></p>
-<p><%= @company.cto_name %></p>
-<p><%= @company.cto_email %></p>
-<p><%= @company.cto_twitter %></p>
-<p><%= @company.cto_blog_url %></p>
+<p>Address: <%= @company.address %></p>
+<p>Website: <%= @company.website %></p>
+<p>Hiring: <%= @company.hiring == true ? "yes" : "no" %></p>
+<p>CTO Name: <%= @company.cto_name %></p>
+<p>CTO Email: <%= @company.cto_email %></p>
+<p>CTO Twitter: <%= @company.cto_twitter %></p>
+<p>CTO Blog Url: <%= @company.cto_blog_url %></p>
