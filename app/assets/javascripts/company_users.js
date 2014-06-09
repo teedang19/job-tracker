@@ -7,7 +7,7 @@ $(function() {
   $('.company').on('click', function(event) {
     event.preventDefault();
     $('#company_id').val(this.id);
-    var compName = $(this).attr('class').replace("comany ", "");
+    var compName = $(this).attr('class').replace("company ", "");
     $('#insert_comp_name').text("Adding a potential job for: " + compName);
   });
   
