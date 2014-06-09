@@ -4,8 +4,7 @@
   <h4>Choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
 
   <% @all_companies.each do |comp| %>
-    <p><%= comp.name %></p>
-    <p><%= link_to "view company details", company_path(comp) %></p>
+    <p><%= link_to comp.name, company_path(comp) %></p>
     <p><%= link_to "add a potential job for this company", new_company_user_path, class: "company #{comp.name}", id: comp.id %></p>
   <% end %>
 
