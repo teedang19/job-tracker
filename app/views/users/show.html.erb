@@ -1,9 +1,9 @@
-<h1>welcome back to jobTracker, <%= @user.username%> !</h1>
+<h1>welcome back to jobTracker, <%= current_user.username%> !</h1>
 <h4>here are your potential new jobs!</h4>
 
 <%= link_to "Add a potential job", new_company_user_path %>
 
-<% @user.potential_companies.each do |pc| %>
+<% current_user.potential_companies.each do |pc| %>
   <div class="company-user-info">
     <p><%= link_to pc.company.name, company_path(pc.company)%></p>
     <p><%= pc.company.address %></p>

@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :create]
 
   def index
-    @user = User.find_by_id(session[:user_id])
-    redirect_to @user if @user
+    redirect_to current_user if current_user
   end
 
   def create
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(session[:user_id])
   end
 
   private
