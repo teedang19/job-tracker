@@ -1,0 +1,33 @@
+<%= form_for @company_user do |f| %>
+
+      <%= hidden_field_tag :company_id %>
+
+      <%= f.label :notes %>
+      <%= f.text_area :notes %><br>
+
+      <%= f.label :advocate_name %>
+      <%= f.text_field :advocate_name %><br>
+
+      <%= f.label :advocate_email %>
+      <%= f.text_field :advocate_email %><br>
+
+      <%= f.label :advocate_twitter %>
+      <%= f.text_field :advocate_twitter %><br>
+
+      <%= f.label :last_reached_out %>
+      <%= f.datetime_select :last_reached_out, discard_year: true, discard_minute: true, ampm: true %><br>
+
+      <%= f.label :last_follow_up %>
+      <%= f.datetime_select :last_follow_up, discard_year: true, discard_minute: true, ampm: true %><br>
+
+      <%= f.label :next_step %>
+      <%= f.text_area :next_step %><br>
+
+      <%= f.label :interview_notes %>
+      <%= f.text_area :interview_notes %><br>
+
+      <%= f.label :offer %>
+      <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 0]])) %><br>
+
+      <%= f.submit value: "Add this job!" %>
+<% end %>

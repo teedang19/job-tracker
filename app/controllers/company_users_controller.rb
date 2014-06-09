@@ -19,6 +19,10 @@ class CompanyUsersController < ApplicationController
 
   end
 
+  def edit
+    @company_user = CompanyUser.find(params[:id])
+  end
+
 
   private
 

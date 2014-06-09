@@ -4,7 +4,7 @@
 <%= link_to "Add a potential job", new_company_user_path %>
 
 <% @user.potential_companies.each do |pc| %>
-  <div class="uc">
+  <div class="company-user-info">
     <p><%= link_to pc.company.name, company_path(pc.company)%></p>
     <p><%= pc.company.address %></p>
     <p><%= link_to "#{pc.company.name} website", "#{pc.company.website}" %></p>
@@ -18,5 +18,6 @@
     <p>Next step details: <%= pc.next_step %></p>
     <p>Interview Notes: <%= pc.interview_notes %></p>
     <p>Offer: <%= pc.offer == true ? "yes" : "no" %></p>
+    <p><%= link_to "Edit this potential job", edit_company_user_path(pc)%></p>
   </div>
 <% end %>
