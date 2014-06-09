@@ -5,11 +5,11 @@ class CompanyUsersController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = current_user
     @company_user = CompanyUser.new(company_user_params)
+    @company_user.user = @user
     @company_user.company_id = params[:company_id]
     @company_user.offer = params[:offer]
-    @company_user.user = @user
 
     if @company_user.save
       redirect_to @user
@@ -23,6 +23,16 @@ class CompanyUsersController < ApplicationController
     @company_user = CompanyUser.find(params[:id])
   end
 
+  def update
+    @user = User.find(session[:user_id])
+    @company_user = CompanyUser.find(params[:id])
+    @company_user.offer = params[:offer]
+    if @company_user.update(company_user_params)
+      redirect_to @user
+    else
+      render :new
+    end
+  end
 
   private
 
