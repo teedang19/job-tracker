@@ -12,8 +12,8 @@
   <p>Advocate Name: <%= pc.advocate_name %></p>
   <p>Advocate Email: <%= pc.advocate_email %></p>
   <p>Advocate Twitter: <%= pc.advocate_twitter %></p>
-  <p>Last reached out: <%= pc.last_reached_out %></p>
-  <p>Last follow-up: <%= pc.last_follow_up %></p>
+  <p>Last reached out: <%= pc.last_reached_out.localtime.strftime("%a, %b %d %Y %l:%M %p") %></p>
+  <p>Last follow-up: <%= pc.last_follow_up.localtime.strftime("%a, %b %d %Y %l:%M %p") %></p>
   <p>Next step details: <%= pc.next_step %></p>
   <p>Interview Notes: <%= pc.interview_notes %></p>
   <p>Offer: <%= pc.offer %></p>
