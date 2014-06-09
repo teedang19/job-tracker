@@ -1,39 +1,46 @@
-<h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
-<% @all_companies.each do |comp| %>
-  <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p>
-<% end %>
+<% if @all_companies.empty?%>
+  <h4>there are no companies for which to add jobs! <%= link_to "Create a new one now.", new_company_path %></h4>
+<% else %>
+  <h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
 
-<p id="insert_comp_name"></p>
-<%= form_for @company_user do |f| %>
+  <% @all_companies.each do |comp| %>
+    <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p>
+  <% end %>
 
-  <%= hidden_field_tag :company_id %>
+  <div class="cu-form">
+    <p id="insert_comp_name"></p>
+    <%= form_for @company_user do |f| %>
 
-  <%= f.label :notes %>
-  <%= f.text_area :notes %><br>
+      <%= hidden_field_tag :company_id %>
 
-  <%= f.label :advocate_name %>
-  <%= f.text_field :advocate_name %><br>
+      <%= f.label :notes %>
+      <%= f.text_area :notes %><br>
 
-  <%= f.label :advocate_email %>
-  <%= f.text_field :advocate_email %><br>
+      <%= f.label :advocate_name %>
+      <%= f.text_field :advocate_name %><br>
 
-  <%= f.label :advocate_twitter %>
-  <%= f.text_field :advocate_twitter %><br>
+      <%= f.label :advocate_email %>
+      <%= f.text_field :advocate_email %><br>
 
-  <%= f.label :last_reached_out %>
-  <%= f.datetime_select :last_reached_out, discard_year: true, discard_minute: true, ampm: true %><br>
+      <%= f.label :advocate_twitter %>
+      <%= f.text_field :advocate_twitter %><br>
 
-  <%= f.label :last_follow_up %>
-  <%= f.datetime_select :last_follow_up, discard_year: true, discard_minute: true, ampm: true %><br>
+      <%= f.label :last_reached_out %>
+      <%= f.datetime_select :last_reached_out, discard_year: true, discard_minute: true, ampm: true %><br>
 
-  <%= f.label :next_step %>
-  <%= f.text_area :next_step %><br>
+      <%= f.label :last_follow_up %>
+      <%= f.datetime_select :last_follow_up, discard_year: true, discard_minute: true, ampm: true %><br>
 
-  <%= f.label :interview_notes %>
-  <%= f.text_area :interview_notes %><br>
+      <%= f.label :next_step %>
+      <%= f.text_area :next_step %><br>
 
-  <%= f.label :offer %>
-  <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 0]])) %><br>
+      <%= f.label :interview_notes %>
+      <%= f.text_area :interview_notes %><br>
 
-  <%= f.submit value: "Add this job!" %>
+      <%= f.label :offer %>
+      <%= select_tag(:offer, options_for_select([["Yes", 1], ["No", 0]])) %><br>
+
+      <%= f.submit value: "Add this job!" %>
+    <% end %>
+  </div>
 <% end %>
