@@ -4,7 +4,9 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    p params
     @company = Company.new(company_params)
+    @company.hiring = params[:hiring]
     if @company.save
       redirect_to new_company_user_path
     else
