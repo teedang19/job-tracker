@@ -4,7 +4,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    p params
     @company = Company.new(company_params)
     @company.hiring = params[:hiring]
     if @company.save
@@ -18,6 +17,22 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id]) 
+  end
+
+  def edit
+    @company = Company.find(params[:id]) 
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    @company.hiring = params[:hiring]
+    if @company.update(company_params)
+      redirect_to new_company_user_path
+    else
+      flash[:errors] = []
+      @company.errors.full_messages.each {|msg| flash[:errors] << msg}
+      render :new
+    end
   end
 
   private
