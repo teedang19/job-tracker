@@ -32,6 +32,13 @@ class CompanyUsersController < ApplicationController
     end
   end
 
+  def destroy
+    @company_user = CompanyUser.find(params[:id])
+    @company_user.destroy
+    flash[:messages] = ["Your potential job at #{@company_user.company.name} has been deleted."]
+    redirect_to current_user
+  end
+
   private
 
   def company_user_params

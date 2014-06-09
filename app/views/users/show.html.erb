@@ -3,6 +3,12 @@
 
 <%= link_to "Add a potential job", new_company_user_path %>
 
+<% if flash[:messages] %>
+    <% flash[:messages].each do |msg| %>
+        <p><%= msg %></p>
+    <% end %>
+<% end %>
+
 <% current_user.potential_companies.each do |pc| %>
   <div class="company-user-info">
     <p><%= link_to pc.company.name, company_path(pc.company)%></p>
@@ -19,5 +25,6 @@
     <p>Interview Notes: <%= pc.interview_notes %></p>
     <p>Offer: <%= pc.offer == true ? "yes" : "no" %></p>
     <p><%= link_to "Edit this potential job", edit_company_user_path(pc)%></p>
+    <p><%= link_to "Delete this potential job", company_user_path(pc), method: :delete %></p>
   </div>
 <% end %>
