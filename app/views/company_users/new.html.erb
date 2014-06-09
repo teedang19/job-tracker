@@ -1,10 +1,12 @@
 <% if @all_companies.empty?%>
-  <h4>there are no companies for which to add jobs! <%= link_to "Create a new one now.", new_company_path %></h4>
+  <h4>There are no companies for which to add jobs! <%= link_to "Create a new one now.", new_company_path %></h4>
 <% else %>
-  <h4>choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
+  <h4>Choose from this list of companies, or <%= link_to "create a new one", new_company_path %>:</h4>
 
   <% @all_companies.each do |comp| %>
-    <p><%= link_to comp.name, new_company_user_path, class: "company", id: comp.id %></p>
+    <p><%= comp.name %></p>
+    <p><%= link_to "view company details", company_path(comp) %></p>
+    <p><%= link_to "add a potential job for this company", new_company_user_path, class: "company #{comp.name}", id: comp.id %></p>
   <% end %>
 
   <div class="cu-form">
