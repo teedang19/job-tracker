@@ -1,7 +1,7 @@
 <h4><%= @company.name %></h4>
 <p>Address: <%= @company.address %></p>
 <p>Website: <%= link_to @company.website, "http://#{@company.website}" %></p>
-<p>Hiring: <%= @company.hiring == true ? "yes" : "no" %></p>
+<p>Hiring: <%= @company.hiring ? "yes" : "no" %></p>
 <p>CTO Name: <%= @company.cto_name %></p>
 <p>CTO Email: <%= @company.cto_email %></p>
 <p>CTO Twitter: <%= @company.cto_twitter %></p>
