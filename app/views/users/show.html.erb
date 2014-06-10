@@ -13,7 +13,7 @@
   <div class="company-user-info">
     <p><%= link_to pc.company.name, company_path(pc.company)%></p>
     <p><%= pc.company.address %></p>
-    <p><%= link_to "#{pc.company.name} website", "#{pc.company.website}" %></p>
+    <p><%= link_to "#{pc.company.name} website", "http://#{pc.company.website}" %></p>
     <p>Hiring? <%= pc.company.hiring == true ? "yes" : "no" %></p>
     <p>Notes: <%= pc.notes %></p>
     <p>Advocate Name: <%= pc.advocate_name %></p>
