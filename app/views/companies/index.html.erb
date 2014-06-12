@@ -1,10 +1,4 @@
+<h4>all companies</h4>
 <% @all_companies.each do |comp| %>
-  <p class="comp-name"><%= comp.name %></p>
-  <p>Address: <%= comp.address %></p>
-  <p><%= link_to "#{comp.name} website", "http:// #{comp.website}" %></p>
-  <p>Hiring: <%= comp.hiring ? "yes" : "no" %></p>
-  <p>CTO Name: <%= comp.cto_name %></p>
-  <p>CTO Email: <%= comp.cto_email %></p>
-  <p>CTO Twitter: <%= comp.cto_twitter %></p>
-  <p>CTO Blog URL: <%= comp.cto_blog_url %></p>
+  <p><%= link_to comp.name, company_path(comp), class:"comp-name" %></p>
 <% end %>
