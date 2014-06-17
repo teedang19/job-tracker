@@ -38,3 +38,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+
