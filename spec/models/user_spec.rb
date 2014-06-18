@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   
   before(:each) do
-    @tam = User.new(username: "tam")
+    @tam = User.create(username: "tam", password: "potatoes", password_confirmation: "potatoes")
   end
 
   it "should be invalid without a username" do
