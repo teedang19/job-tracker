@@ -11,4 +11,11 @@ describe User do
     @tam.should_not be_valid
   end
   
+  it "should have potential companies" do
+    @tam.should respond_to(:potential_companies)
+  end
+
+  it "should have companies" do
+    @tam.should respond_to(:companies)
+  end
 end
