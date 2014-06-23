@@ -34,7 +34,14 @@ feature 'logged in users' do
     click_link 'Logout'
 
     current_path.should == "/"
+  end
 
+  it 'can see a list of their potential jobs' do
+    jellyvision = Company.create(name: "Jellyvision", website: "www.jellyvision.com")
+    cu = CompanyUser.create(user: @test_user, company: jellyvision, last_reached_out: Time.now, last_follow_up: Time.now)
+    visit user_path(@test_user)
+
+    expect(page).to have_content("Jellyvision")
   end
 
 end
