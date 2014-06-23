@@ -1,9 +1,11 @@
-<h4><%= @company.name %></h4>
-<p>Address: <%= @company.address %></p>
-<p>Website: <%= link_to @company.website, "http://#{@company.website}" %></p>
-<p>Hiring: <%= @company.hiring ? "yes" : "no" %></p>
-<p>CTO Name: <%= @company.cto_name %></p>
-<p>CTO Email: <%= @company.cto_email %></p>
-<p>CTO Twitter: <%= @company.cto_twitter %></p>
-<p>CTO Blog Url: <%= link_to @company.cto_blog_url, "http://#{@company.cto_blog_url}"%></p>
-<%= link_to "Edit this company's information", edit_company_path(@company) %>
+<div class="company_info">
+  <h4><%= @company.name %></h4>
+  <p>Address: <%= @company.address %></p>
+  <p>Website: <%= link_to @company.website, "http://#{@company.website}" %></p>
+  <p>Hiring: <%= @company.hiring ? "yes" : "no" %></p>
+  <p>CTO Name: <%= @company.cto_name %></p>
+  <p>CTO Email: <%= @company.cto_email %></p>
+  <p>CTO Twitter: <%= @company.cto_twitter %></p>
+  <p>CTO Blog Url: <%= link_to @company.cto_blog_url, "http://#{@company.cto_blog_url}"%></p>
+  <%= link_to "Edit this company's information", edit_company_path(@company) %>
+</div>
