@@ -5,7 +5,7 @@
 
   <% @all_companies.each do |comp| %>
     <p><%= link_to comp.name, company_path(comp) %></p>
-    <p><%= link_to "add a potential job for this company", new_company_user_path, class: "company #{comp.name}", id: comp.id %></p>
+    <p><%= link_to "add a potential job for #{comp.name}", new_company_user_path, class: "company #{comp.name}", id: comp.id %></p>
   <% end %>
 
   <div class="cu-form">
