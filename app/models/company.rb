@@ -4,7 +4,10 @@ class Company < ActiveRecord::Base
 
   validates :name, :website, presence: true, uniqueness: true
 
-  def full_address
+  geocoded_by :address
+  before_save :geocode
+
+  def address
     street_two == "" ? "#{street} #{city}, #{state} #{zip}" : "#{street}, #{street_two} #{city}, #{state} #{zip}"
   end
 
